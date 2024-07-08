@@ -2,18 +2,16 @@
 
 {% block body %} 
 
-<ul>
+<ul class="grid grid-cols-1 gap-4">
 {% for book in books %} 
 
-
-<li>{{book.title}}</li >
-
-<li>{{book.author}}</li>
-<li> <a href = books/{{book.id}}> lien vers :  {{book.title}} </a> </li>
-</br>
+    <li class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-xl font-bold">{{book.title}}</h2>
+        <p class="text-gray-600">Autheur : {{book.author.name}}</p>
+        <p class="text-gray-600">
+            <a href="books/{{book.id}}" class="text-blue-500 hover:underline">lien vers : {{book.title}}</a>
+        </p>
+    </li>
 {% endfor %} 
 </ul>
-
-
-
 {% endblock %}

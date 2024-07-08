@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
 
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold mb-4">Liste des auteurs avec leurs livres</h1>
 
-{%for author in authors %}
-        {%for book in author.books %}
-        <li>{{ book.title }}</li>
-        {% endfor %}
-{% endfor %}
+        <ul class="space-y-2">
+            {% for author in authors %}
+                <li class="border p-4 rounded-lg">
+                    <h2 class="text-xl font-bold">{{ author.name }}</h2>
+
+                    <ul class="space-y-2 mt-2">
+                        {% for book in author.books %}
+                            <li class="text-lg">
+                                <a href="books/{{ book.id }}" class="text-blue-500 hover:underline">{{ book.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 
 {% endblock %}
